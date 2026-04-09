@@ -12,18 +12,18 @@ const connections = [
   },
   {
     name: "LinkedIn",
-    username: "Aryaman Bohra",
+    username: "aryaman-bohra",
     icon: Linkedin,
     description: "Professional networking and career updates.",
-    link: "https://www.linkedin.com/in/aryamanbohra",
+    link: "https://www.linkedin.com/in/aryaman-bohra/",
     color: "bg-blue-600"
   },
   {
     name: "Instagram",
-    username: "@aryaman.bohra",
+    username: "@aryamanbohra11",
     icon: Instagram,
     description: "Personal life, travel and captures.",
-    link: "https://www.instagram.com/aryaman.bohra",
+    link: "https://www.instagram.com/aryamanbohra11/",
     color: "bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500"
   },
 ];

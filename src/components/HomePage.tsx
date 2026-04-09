@@ -93,6 +93,7 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
         {[
           { icon: "📁", label: "Projects", id: "projects" },
           { icon: "📄", label: "Resume", id: "resume" },
+          { icon: "📁", label: "Connections", id: "connections" },
           { icon: "✉️", label: "Contact", id: "contact" },
         ].map((item) => (
           <div key={item.label} onClick={() => onNavigate?.(item.id)} className="flex flex-col items-center cursor-pointer group">

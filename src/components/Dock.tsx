@@ -1,4 +1,4 @@
-import { Home, FolderOpen, FileText, Mail, Settings } from "lucide-react";
+import { Home, FolderOpen, FileText, Mail, Settings, Users } from "lucide-react";
 
 interface DockProps {
   activePage: string;
@@ -9,6 +9,7 @@ const dockItems = [
   { id: "home", icon: Home, label: "Home" },
   { id: "projects", icon: FolderOpen, label: "Projects" },
   { id: "resume", icon: FileText, label: "Resume" },
+  { id: "connections", icon: Users, label: "Connections" },
   { id: "contact", icon: Mail, label: "Contact" },
   { id: "terminal", icon: Settings, label: "Terminal" },
 ];

@@ -6,6 +6,7 @@ import ProjectsPage from "../components/ProjectsPage";
 import ResumePage from "../components/ResumePage";
 import ContactPage from "../components/ContactPage";
 import TerminalPage from "../components/TerminalPage";
+import ConnectionsPage from "../components/ConnectionsPage";
 import desktopBg from "@/assets/desktop-bg.jpg";
 
 const pages: Record<string, React.FC<any>> = {
@@ -14,6 +15,7 @@ const pages: Record<string, React.FC<any>> = {
   resume: ResumePage,
   contact: ContactPage,
   terminal: TerminalPage,
+  connections: ConnectionsPage,
 };
 
 const Index = () => {

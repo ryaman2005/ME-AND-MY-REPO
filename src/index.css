@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 215 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 20% 10%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 215 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 215 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* macOS tokens */
+    --mac-menubar-bg: 220 15% 96%;
+    --mac-window-bg: 0 0% 100% / 0.85;
+    --mac-window-border: 220 15% 85%;
+    --mac-dock-bg: 0 0% 100% / 0.7;
+    --mac-glass-blur: 20px;
+    --mac-dot-red: 0 80% 60%;
+    --mac-dot-yellow: 40 95% 55%;
+    --mac-dot-green: 130 60% 50%;
+    --mac-desktop-gradient: linear-gradient(135deg, hsl(210 40% 85%), hsl(220 30% 90%), hsl(200 25% 88%));
+
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .glass-window {
+    background: hsla(var(--mac-window-bg));
+    backdrop-filter: blur(var(--mac-glass-blur));
+    -webkit-backdrop-filter: blur(var(--mac-glass-blur));
+    border: 1px solid hsl(var(--mac-window-border));
+    box-shadow:
+      0 20px 60px -15px hsla(0 0% 0% / 0.15),
+      0 0 0 1px hsla(0 0% 100% / 0.1) inset;
+  }
+
+  .glass-dock {
+    background: hsla(var(--mac-dock-bg));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(0 0% 100% / 0.3);
+    box-shadow:
+      0 8px 32px -8px hsla(0 0% 0% / 0.12),
+      0 0 0 1px hsla(0 0% 100% / 0.1) inset;
+  }
+
+  .glass-menubar {
+    background: hsla(var(--mac-menubar-bg) / 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid hsl(0 0% 0% / 0.08);
+  }
+
+  .mac-dot {
+    @apply w-3 h-3 rounded-full transition-transform;
+  }
+  .mac-dot:hover {
+    @apply scale-110;
+  }
+  .mac-dot-red { background: hsl(var(--mac-dot-red)); }
+  .mac-dot-yellow { background: hsl(var(--mac-dot-yellow)); }
+  .mac-dot-green { background: hsl(var(--mac-dot-green)); }
+
+  .tag-badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border;
+    background: hsl(var(--primary) / 0.08);
+    color: hsl(var(--primary));
+    border-color: hsl(var(--primary) / 0.15);
+  }
+
+  .dock-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center text-xl transition-all duration-200 cursor-pointer;
+    background: hsl(var(--secondary));
+  }
+  .dock-icon:hover {
+    @apply -translate-y-1 scale-110;
+    box-shadow: 0 8px 20px -4px hsla(0 0% 0% / 0.15);
+  }
+  .dock-icon.active {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 4px 16px -2px hsl(var(--primary) / 0.4);
+  }
+
+  .project-card {
+    @apply rounded-xl overflow-hidden border border-border transition-all duration-300 cursor-pointer;
+    background: hsl(var(--card));
+  }
+  .project-card:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 12px 40px -12px hsla(0 0% 0% / 0.15);
+  }
+
+  .timeline-dot {
+    @apply w-3 h-3 rounded-full flex-shrink-0;
+    background: hsl(var(--primary));
+  }
+  .timeline-dot.inactive {
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+}

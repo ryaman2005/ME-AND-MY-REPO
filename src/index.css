@@ -59,6 +59,44 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  .dark {
+    --background: 220 20% 5%;
+    --foreground: 220 20% 98%;
+
+    --card: 220 20% 8%;
+    --card-foreground: 220 20% 98%;
+
+    --popover: 220 20% 6%;
+    --popover-foreground: 220 20% 98%;
+
+    --primary: 215 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 12%;
+    --secondary-foreground: 220 20% 98%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 215 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 215 100% 60%;
+
+    /* macOS dark tokens */
+    --mac-menubar-bg: 220 20% 8%;
+    --mac-window-bg: 220 20% 10% / 0.8;
+    --mac-window-border: 220 20% 20%;
+    --mac-dock-bg: 0 0% 0% / 0.6;
+    --mac-glass-blur: 30px;
+    --mac-desktop-gradient: linear-gradient(135deg, hsl(220 30% 10%), hsl(230 25% 15%), hsl(220 20% 12%));
+  }
 }
 
 @layer base {

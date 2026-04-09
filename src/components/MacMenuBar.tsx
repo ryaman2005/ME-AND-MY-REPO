@@ -1,11 +1,20 @@
+import { useState, useEffect } from "react";
 import { Search, Wifi, Battery, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const MacMenuBar = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const now = new Date();
   const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   const dateStr = now.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <div className="glass-menubar h-7 flex items-center justify-between px-4 text-xs font-medium select-none z-50 relative">
@@ -20,10 +29,10 @@ const MacMenuBar = () => {
       </div>
       <div className="flex items-center gap-3 text-muted-foreground">
         <button 
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
+          onClick={() => setTheme(isDark ? "light" : "dark")} 
           className="hover:text-foreground transition-colors outline-none"
         >
-          {theme === "dark" ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+          {!mounted ? <div className="w-3.5 h-3.5" /> : isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
         </button>
         <Battery className="w-4 h-4" />
         <Wifi className="w-3.5 h-3.5" />
